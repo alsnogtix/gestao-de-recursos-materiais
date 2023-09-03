@@ -7,6 +7,7 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #FFF url(../img/fundo.png) repeat-x;
+    
 }
 
 #container{
@@ -26,5 +27,50 @@ body{
 
 /* barra de navegação */
 ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
+#topo {
+    text-align: center;
+}
+
+#topo ul {
+    margin-top: 45px;
+    background: #B10333;
+    /*float: left;*/
+    display: inline-block;
+    
+    
+}
+
+#topo ul li{
+    float: left;
+}
+
+#topo ul li.ativo{
+    background-color: #69001D;
+}
+
+#topo ul li a{
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    padding: 0.5em 1.5em;
+    line-height: 2.1em;
+    color: #FFF;
+    background: url(../img/divisor.png) repeat-y;
+}
+
+#topo ul .primeiro a{
+    background: none;
+}
+
+#topo ul li:hover{
+    background: #69001D;
+}
+
+#topo ul li{
+    transition: .3s;
 }
