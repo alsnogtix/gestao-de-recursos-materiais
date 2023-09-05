@@ -10,16 +10,16 @@ body{
     
 }
 
-#container{
+#container-nav{
     width: 70%;
     margin: 0 auto;
     
 }
 
 .logo{
-    width: 165px;
-    height: 66px;
-    margin: -5px 10px;
+    width: 200px;
+    height: 85px;
+    margin:  10px;
     background: url(../img/logo.png) no-repeat center;
     text-indent: -3000px;
 }
@@ -39,10 +39,7 @@ ul{
 #topo ul {
     margin-top: 45px;
     background: #B10333;
-    /*float: left;*/
     display: inline-block;
-    
-    
 }
 
 #topo ul li{
