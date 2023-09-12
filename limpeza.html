@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Materiais</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/limpeza.css">
 </head>
 <body>
     <nav id="container-nav">
@@ -22,14 +23,36 @@
 
     </nav>
 
-    <div class="container">
-        
+    <div id="container">
+      <div id="container-tabs">
+        <div id="header-tabs">
+          <button onclick="abrirTab('tab-alvejante')" type="button" name="button">Alvejante</button>
+          <button onclick="abrirTab('tab-sabao-em-po')" type="button" name="button">Sabão em Pó</button>
+          <button onclick="abrirTab('tab-agua-sanitaria')" type="button" name="button">Água sanitaria</button>
+          <button onclick="abrirTab('tab-sabao-em-barra')" type="button" name="button">Sabão em Barra</button>
 
-    </div>
+        </div> <!-- <div id="header-tabs"> -->
+        <div id="tab-alvejante" class="section-tabs">
+          <h3>alvejante</h3>
+        </div>
+        <div id="tab-sabao-em-po" class="section-tabs">
+          <h3>sabao-em-po</h3>
+        </div>
+        <div id="tab-agua-sanitaria" class="section-tabs">
+          <h3>Agua sanitaria</h3>
+        </div>
+        <div id="tab-sabao-em-barra" class="section-tabs">
+          <h3>Sabão em Barra</h3>
+        </div>
+      </div> <!-- id="container-tabs"> -->
+    </div> <!-- <div id="container"> -->
+
+
+    <script src="js/limpeza.js" charset="utf-8"></script>
 </body>
 </html>
 
 <!-- Informações importantes
-criação do logo em: https://www.freelogodesign.org/ 
+criação do logo em: https://www.freelogodesign.org/
 
 -->

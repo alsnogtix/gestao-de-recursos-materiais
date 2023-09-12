@@ -6,6 +6,7 @@
     <title>Gestão de Materiais</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="css/escolar.css">
+
 </head>
 <body>
     <nav id="container-nav">
@@ -18,21 +19,19 @@
                 <li class="item-menu"><a href="didatico.html">Material Didático</a></li>
                 <li class="item-menu"><a href="informacoes.html">Informações</a></li>
             </ul>
-        </div>
-
-
+        </div> <!-- fim topo -->
     </nav>
 
-    <div class="container">
+    <!-- <div class="container">
         <h1>Gerenciamento de Material Escolar</h1>
         <div class="card">
             <div class="conteudo-card">
                 <form action="">
                     <h4><b>Lápis</b></h4>
                     <button class="bt-limpar" type="button">Limpar</button>
-    
+
                 </form>
-                
+
             </div>
         </div>
 
@@ -42,7 +41,7 @@
                     <h4><b>Caderno</b></h4>
                     <button class="bt-limpar" type="button">Limpar</button>
                 </form>
-                
+
             </div>
         </div>
         <div class="card">
@@ -53,11 +52,33 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
+    <div id="container">
+      <div id="container-tabs">
+        <div id="header-tabs">
+          <button onclick="abrirTab('tab-lapis')" type="button" name="button">Lápis</button>
+          <button onclick="abrirTab('tab-caderno')" type="button" name="button">Caderno</button>
+          <button onclick="abrirTab('tab-caneta')" type="button" name="button">Caneta</button>
+
+        </div> <!-- <div id="header-tabs"> -->
+        <div id="tab-lapis" class="section-tabs">
+          <h3>lapis</h3>
+        </div>
+        <div id="tab-caderno" class="section-tabs">
+          <h3>caderno</h3>
+        </div>
+        <div id="tab-caneta" class="section-tabs">
+          <h3>caneta</h3>
+        </div>
+      </div> <!-- id="container-tabs"> -->
+    </div> <!-- <div id="container"> -->
+
+
+    <script src="js/escolar.js" charset="utf-8"></script>
 </body>
 </html>
 
 <!-- Informações importantes
-criação do logo em: https://www.freelogodesign.org/ 
+criação do logo em: https://www.freelogodesign.org/
 
 -->

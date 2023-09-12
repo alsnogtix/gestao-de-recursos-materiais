@@ -7,13 +7,13 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #FFF url(../img/fundo.png) repeat-x;
-    
+
 }
 
 #container-nav{
     width: 70%;
     margin: 0 auto;
-    
+
 }
 
 .logo{
@@ -70,4 +70,11 @@ ul{
 
 #topo ul li{
     transition: .3s;
+}
+
+/* CORPO DO SITE */
+#container{
+  width: 80%;
+  margin: 0 auto;
+
 }

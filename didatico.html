@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Materiais</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/didatico.css">
 </head>
 <body>
     <nav id="container-nav">
@@ -22,14 +23,40 @@
 
     </nav>
 
-    <div class="container">
-        
+    <div id="container">
+      <div id="container-tabs">
+        <div id="header-tabs">
+          <button onclick="abrirTab('tab-livro')" type="button" name="button">Livro</button>
+          <button onclick="abrirTab('tab-quadro')" type="button" name="button">Quadro</button>
+          <button onclick="abrirTab('tab-giz')" type="button" name="button">Giz</button>
+          <button onclick="abrirTab('tab-apagador')" type="button" name="button">Apagador</button>
+          <button onclick="abrirTab('tab-pincel')" type="button" name="button">Pincel</button>
 
-    </div>
+        </div> <!-- <div id="header-tabs"> -->
+        <div id="tab-livro" class="section-tabs">
+          <h3>Livro</h3>
+        </div>
+        <div id="tab-quadro" class="section-tabs">
+          <h3>QUadro</h3>
+        </div>
+        <div id="tab-giz" class="section-tabs">
+          <h3>giz</h3>
+        </div>
+        <div id="tab-apagador" class="section-tabs">
+          <h3>apagador</h3>
+        </div>
+        <div id="tab-pincel" class="section-tabs">
+          <h3>pincel</h3>
+        </div>
+      </div> <!-- id="container-tabs"> -->
+    </div> <!-- <div id="container"> -->
+
+
+    <script src="js/didatico.js" charset="utf-8"></script>
 </body>
 </html>
 
 <!-- Informações importantes
-criação do logo em: https://www.freelogodesign.org/ 
+criação do logo em: https://www.freelogodesign.org/
 
 -->
