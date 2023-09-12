@@ -22,43 +22,12 @@
         </div> <!-- fim topo -->
     </nav>
 
-    <!-- <div class="container">
-        <h1>Gerenciamento de Material Escolar</h1>
-        <div class="card">
-            <div class="conteudo-card">
-                <form action="">
-                    <h4><b>Lápis</b></h4>
-                    <button class="bt-limpar" type="button">Limpar</button>
-
-                </form>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="conteudo-card">
-                <form action="">
-                    <h4><b>Caderno</b></h4>
-                    <button class="bt-limpar" type="button">Limpar</button>
-                </form>
-
-            </div>
-        </div>
-        <div class="card">
-            <div class="conteudo-card">
-                <form action="">
-                    <h4><b>Caneta</b></h4>
-                    <button class="bt-limpar" type="button">Limpar</button>
-                </form>
-            </div>
-        </div>
-    </div> -->
     <div id="container">
       <div id="container-tabs">
         <div id="header-tabs">
-          <button onclick="abrirTab('tab-lapis')" type="button" name="button">Lápis</button>
-          <button onclick="abrirTab('tab-caderno')" type="button" name="button">Caderno</button>
-          <button onclick="abrirTab('tab-caneta')" type="button" name="button">Caneta</button>
+          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-lapis')" type="button" name="button">Lápis</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-caderno')" type="button" name="button">Caderno</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-caneta')" type="button" name="button">Caneta</button>
 
         </div> <!-- <div id="header-tabs"> -->
         <div id="tab-lapis" class="section-tabs">

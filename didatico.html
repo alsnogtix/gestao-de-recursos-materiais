@@ -26,11 +26,11 @@
     <div id="container">
       <div id="container-tabs">
         <div id="header-tabs">
-          <button onclick="abrirTab('tab-livro')" type="button" name="button">Livro</button>
-          <button onclick="abrirTab('tab-quadro')" type="button" name="button">Quadro</button>
-          <button onclick="abrirTab('tab-giz')" type="button" name="button">Giz</button>
-          <button onclick="abrirTab('tab-apagador')" type="button" name="button">Apagador</button>
-          <button onclick="abrirTab('tab-pincel')" type="button" name="button">Pincel</button>
+          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-livro')" type="button" name="button">Livro</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-quadro')" type="button" name="button">Quadro</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-giz')" type="button" name="button">Giz</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-apagador')" type="button" name="button">Apagador</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab-pincel')" type="button" name="button">Pincel</button>
 
         </div> <!-- <div id="header-tabs"> -->
         <div id="tab-livro" class="section-tabs">
