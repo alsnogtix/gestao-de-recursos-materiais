@@ -10,11 +10,6 @@ body{
 
 }
 
-#container-nav{
-    width: 70%;
-    margin: 0 auto;
-
-}
 
 .logo{
     width: 200px;
@@ -24,8 +19,31 @@ body{
     text-indent: -3000px;
 }
 
+/* criação de colunas */
+.coluna-50{
+  width: 50%;
+}
+
+.coluna-33{
+  width: 33%;
+}
+
+.coluna-25{
+  width: 25%;
+}
+
+.linha{
+  display: flex;
+  flex-flow: row wrap;
+  padding: 8px; 
+}
 
 /* barra de navegação */
+#container-nav{
+    width: 70%;
+    margin: 0 auto;
+}
+
 ul{
     margin: 0;
     padding: 0;

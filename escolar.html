@@ -28,18 +28,140 @@
           <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-lapis')" type="button" name="button">Lápis</button>
           <button class="button-tabs" onclick="abrirTab(event, 'tab-caderno')" type="button" name="button">Caderno</button>
           <button class="button-tabs" onclick="abrirTab(event, 'tab-caneta')" type="button" name="button">Caneta</button>
-
         </div> <!-- <div id="header-tabs"> -->
+
         <div id="tab-lapis" class="section-tabs">
-          <h3>lapis</h3>
+          <form class="" method="post">
+            <div class="linha">
+              <div class="coluna-33">
+                <label for="id-lapis">ID: </label>
+                <input id="id-lapis" type="number" name="id-lapis" >
+              </div>
+              <div class="coluna-33">
+                <label for="altura-lapis">Altura: </label>
+                <input id="altura-lapis" type="text" name="altura-lapis" >
+              </div>
+              <div class="coluna-33">
+                <label for="marca-lapis">Marca: </label>
+                <input id="marca-lapis" type="text" name="marca-lapis">
+              </div>
+            </div>
+
+            <div class="linha">
+              <div class="coluna-33">
+                <label for="tipo-lapis">Tipo: </label>
+                <input type="radio" name="tipo-lapis" value="desenho">
+                <label for="tipo-lapis">Desenho</label>
+                <input type="radio" name="tipo-lapis" value="comum">
+                <label for="tipo-lapis">Comum</label>
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade-lapis">Quantidade: </label>
+                <input id="quantidade-lapis" type="number" name="quantidade-lapis">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <input type="submit" name="" value="SALVAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="DELETAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="BUSCAR">
+              </div>
+            </div>
+          </form>
         </div>
+
         <div id="tab-caderno" class="section-tabs">
-          <h3>caderno</h3>
+          <form class=""  method="post">
+            <div class="linha">
+              <div class="coluna-25">
+                <label for="id-caderno">ID: </label>
+                <input id="id-caderno" type="number" name="id-caderno">
+              </div>
+              <div class="coluna-25">
+                <label for="altura-caderno">Altura: </label>
+                <input id="altura-caderno" type="text" name="altura-caderno" >
+              </div>
+              <div class="coluna-25">
+                <label for="largura-caderno">Largura: </label>
+                <input id="largura-caderno" type="text" name="largura-caderno" value="">
+              </div>
+              <div class="coluna-25">
+                <label for="materias-caderno">Matérias: </label>
+                <input id="materias-caderno" type="number" name="materias-caderno" value="">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-25">
+                <label for="folhas-caderno">Folhas: </label>
+                <input id="folhas-caderno" type="number" name="folhas-caderno">
+              </div>
+              <div class="coluna-25">
+                <label for="marca-caderno">Marca: </label>
+                <input id="marca-caderno" type="text" name="marca-caderno">
+              </div>
+              <div class="coluna-25">
+                <label for="quantidade-caderno">Quantidade: </label>
+                <input id="quantidade-caderno" type="number" name="quantidade-caderno">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <input type="submit" name="" value="SALVAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="DELETAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="BUSCAR">
+              </div>
+            </div>
+          </form>
         </div>
         <div id="tab-caneta" class="section-tabs">
-          <h3>caneta</h3>
+          <form method="post">
+            <div class="linha">
+              <div class="coluna-33">
+                <label for="id-caneta">ID: </label>
+                <input id="id-caneta" type="number" name="id-caneta">
+              </div>
+              <div class="coluna-33">
+                <label for="altura-caneta">Altura: </label>
+                <input id="altura-caneta" type="text" name="altura-caneta">
+              </div>
+              <div class="coluna-33">
+                <label for="cor-caneta">Cor: </label>
+                <input id="cor-caneta" type="text" name="cor-caneta">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <label for="marca-caneta">Marca: </label>
+                <input id="marca-caneta" type="text" name="marca-caneta">
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade-caneta">Quantidade: </label>
+                <input id="quantidade-caneta" type="number" name="quantidade-caneta">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <input type="submit" name="" value="SALVAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="DELETAR">
+              </div>
+              <div class="coluna-33">
+                <input type="submit" name="" value="BUSCAR">
+              </div>
+            </div>
+          </form>
         </div>
-      </div> <!-- id="container-tabs"> -->
+      </div> <!-- <div id="container-tabs"> -->
+
     </div> <!-- <div id="container"> -->
 
 
