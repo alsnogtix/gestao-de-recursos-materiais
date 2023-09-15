@@ -26,37 +26,37 @@
     <div id="container">
       <div id="container-tabs">
         <div id="header-tabs">
-          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-alvejante')" type="button" name="button">Alvejante</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-sabao-em-po')" type="button" name="button">Sabão em Pó</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-agua-sanitaria')" type="button" name="button">Água sanitaria</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-sabao-em-barra')" type="button" name="button">Sabão em Barra</button>
+          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab_alvejante')" type="button" name="button">Alvejante</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_sabao_em_po')" type="button" name="button">Sabão em Pó</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_agua_sanitaria')" type="button" name="button">Água sanitaria</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_sabao_em_barra')" type="button" name="button">Sabão em Barra</button>
 
         </div> <!-- <div id="header-tabs"> -->
-        <div id="tab-alvejante" class="section-tabs">
+        <div id="tab_alvejante" class="section-tabs">
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-alvejante">ID: </label>
-                <input id="id-alvejante" type="number" name="id-alvejante">
+                <label for="id_alvejante">ID: </label>
+                <span id="id_alvejante">0</span>
               </div>
               <div class="coluna-33">
-                <label for="marca-alvejante">Marca: </label>
-                <input id="marca-alvejante" type="text" name="marca-alvejante">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="unidades-alvejante">Unidades: </label>
-                <input id="unidades-alvejante" type="number" name="unidades-alvejante">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-alvejante">Quantidade: </label>
-                <input id="quantidade-alvejante" type="number" name="quantidade-alvejante">
+                <label for="marca_alvejante">Marca: </label>
+                <input id="marca_alvejante" type="text" name="marca_alvejante">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="unidades_alvejante">Unidades: </label>
+                <input id="unidades_alvejante" type="number" name="unidades_alvejante">
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade_alvejante">Quantidade: </label>
+                <input id="quantidade_alvejante" type="number" name="quantidade_alvejante">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button type="button" name="button" onclick="cadastrarAlvejante()" >SALVAR</button>
               </div>
               <div class="coluna-33">
                 <input type="submit" name="" value="DELETAR">
@@ -66,32 +66,46 @@
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Unidades</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_alvejante">
+
+            </tbody>
+          </table>
         </div>
-        <div id="tab-sabao-em-po" class="section-tabs">
+
+        <div id="tab_sabao_em_po" class="section-tabs">
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-sabao-em-po">ID: </label>
-                <input id="id-sabao-em-po" type="number" name="id-sabao-em-po">
+                <label for="id_sabao_em_po">ID: </label>
+                <span id="id_sabao_em_po">0</span>
               </div>
               <div class="coluna-33">
-                <label for="marca-sabao-em-po">Marca: </label>
-                <input id="marca-sabao-em-po" type="text" name="marca-sabao-em-po">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="unidades-sabao-em-po">Unidades: </label>
-                <input id="unidades-sabao-em-po" type="number" name="unidades-sabao-em-po">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-sabao-em-po">Quantidade: </label>
-                <input id="quantidade-sabao-em-po" type="number" name="quantidade-sabao-em-po">
+                <label for="marca_sabao_em_po">Marca: </label>
+                <input id="marca_sabao_em_po" type="text" name="marca_sabao_em_po">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="unidades_sabao_em_po">Unidades: </label>
+                <input id="unidades_sabao_em_po" type="number" name="unidades_sabao_em_po">
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade_sabao_em_po">Quantidade: </label>
+                <input id="quantidade_sabao_em_po" type="number" name="quantidade_sabao_em_po">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button type="button" name="button" onclick="cadastrarSabaoEmPo()" >SALVAR</button>
               </div>
               <div class="coluna-33">
                 <input type="submit" name="" value="DELETAR">
@@ -101,32 +115,46 @@
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Unidades</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_sabao_em_po">
+
+            </tbody>
+          </table>
         </div>
-        <div id="tab-agua-sanitaria" class="section-tabs">
+
+        <div id="tab_agua_sanitaria" class="section-tabs">
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-agua-sanitaria">ID: </label>
-                <input id="id-agua-sanitaria" type="number" name="id-agua-sanitaria">
+                <label for="id_agua_sanitaria">ID: </label>
+                <span id="id_agua_sanitaria">0</span>
               </div>
               <div class="coluna-33">
-                <label for="marca-agua-sanitaria">Marca: </label>
-                <input id="marca-agua-sanitaria" type="text" name="marca-agua-sanitaria">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="unidades-agua-sanitaria">Unidades: </label>
-                <input id="unidades-agua-sanitaria" type="number" name="unidades-agua-sanitaria">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-agua-sanitaria">Quantidade: </label>
-                <input id="quantidade-agua-sanitaria" type="number" name="quantidade-agua-sanitaria">
+                <label for="marca_agua_sanitaria">Marca: </label>
+                <input id="marca_agua_sanitaria" type="text" name="marca_agua_sanitaria">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="unidades_agua_sanitaria">Unidades: </label>
+                <input id="unidades_agua_sanitaria" type="number" name="unidades_agua_sanitaria">
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade_agua_sanitaria">Quantidade: </label>
+                <input id="quantidade_agua_sanitaria" type="number" name="quantidade_agua_sanitaria">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button type="button" name="button" onclick="cadastrarAguaSanitaria()" >SALVAR</button>
               </div>
               <div class="coluna-33">
                 <input type="submit" name="" value="DELETAR">
@@ -136,32 +164,46 @@
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Unidades</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_agua_sanitaria">
+
+            </tbody>
+          </table>
         </div>
-        <div id="tab-sabao-em-barra" class="section-tabs">
+
+        <div id="tab_sabao_em_barra" class="section-tabs">
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-sabao-em-barra">ID: </label>
-                <input id="id-sabao-em-barra" type="number" name="id-sabao-em-barra">
+                <label for="id_sabao_em_barra">ID: </label>
+                <span id="id_sabao_em_barra">0</span>
               </div>
               <div class="coluna-33">
-                <label for="marca-sabao-em-barra">Marca: </label>
-                <input id="marca-sabao-em-barra" type="text" name="marca-sabao-em-barra">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="unidades-sabao-em-barra">Unidades: </label>
-                <input id="unidades-sabao-em-barra" type="number" name="unidades-sabao-em-barra">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-sabao-em-barra">Quantidade: </label>
-                <input id="quantidade-sabao-em-barra" type="number" name="quantidade-sabao-em-barra">
+                <label for="marca_sabao_em_barra">Marca: </label>
+                <input id="marca_sabao_em_barra" type="text" name="marca_sabao_em_barra">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="unidades_sabao_em_barra">Unidades: </label>
+                <input id="unidades_sabao_em_barra" type="number" name="unidades_sabao_em_barra">
+              </div>
+              <div class="coluna-33">
+                <label for="quantidade_sabao_em_barra">Quantidade: </label>
+                <input id="quantidade_sabao_em_barra" type="number" name="quantidade_sabao_em_barra">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button type="button" name="button" onclick="cadastrarSabaoEmBarra()" >SALVAR</button>
               </div>
               <div class="coluna-33">
                 <input type="submit" name="" value="DELETAR">
@@ -171,6 +213,19 @@
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Unidades</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_sabao_em_barra">
+
+            </tbody>
+          </table>
         </div>
       </div> <!-- id="container-tabs"> -->
     </div> <!-- <div id="container"> -->

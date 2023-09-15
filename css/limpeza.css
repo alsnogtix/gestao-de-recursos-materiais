@@ -34,3 +34,7 @@ border-top: none;
 padding: 6px 12px;
 display: none;
 }
+
+span{
+  color: green;
+}

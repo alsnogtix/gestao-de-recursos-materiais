@@ -35,7 +35,7 @@ body{
 .linha{
   display: flex;
   flex-flow: row wrap;
-  padding: 8px; 
+  padding: 8px;
 }
 
 /* barra de navegação */
@@ -95,4 +95,23 @@ ul{
   width: 80%;
   margin: 0 auto;
 
+}
+
+/* Tabelas */
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th{
+  border: 1px solid #D2D2D2;
+}
+
+td, th{
+  text-align: center;
+  padding: 4px;
+}
+
+tr:nth-child(even){
+  background-color: #D2D2D2;
 }
