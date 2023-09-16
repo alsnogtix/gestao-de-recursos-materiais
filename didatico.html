@@ -26,225 +26,302 @@
     <div id="container">
       <div id="container-tabs">
         <div id="header-tabs">
-          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-livro')" type="button" name="button">Livro</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-quadro')" type="button" name="button">Quadro</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-giz')" type="button" name="button">Giz</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-apagador')" type="button" name="button">Apagador</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-pincel')" type="button" name="button">Pincel</button>
+          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab_livro')" type="button" name="button">Livro</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_quadro')" type="button" name="button">Quadro</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_giz')" type="button" name="button">Giz</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_apagador')" type="button" name="button">Apagador</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_pincel')" type="button" name="button">Pincel</button>
 
         </div> <!-- <div id="header-tabs"> -->
-        <div id="tab-livro" class="section-tabs">
+        <div id="tab_livro" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-livro">ID: </label>
-                <span id="id-livro">0</span>
+                <label for="id_livro">ID: </label>
+                <span id="id_livro">0</span>
               </div>
               <div class="coluna-33">
-                <label for="titulo-livro">Título: </label>
-                <input id="titulo-livro" type="text" name="titulo-livro" >
+                <label for="titulo_livro">Título: </label>
+                <input id="titulo_livro" type="text" name="titulo_livro" >
               </div>
               <div class="coluna-33">
-                <label for="autor-livro">Autor: </label>
-                <input id="autor-livro" type="text" name="autor-livro">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="paginas-livro">Páginas: </label>
-                <input id="paginas-livro" type="number" name="paginas-livro">
-              </div>
-              <div class="coluna-33">
-                <label for="editora-livro">Editora: </label>
-                <input id="editora-livro" type="text" name="editora-livro">
+                <label for="autor_livro">Autor: </label>
+                <input id="autor_livro" type="text" name="auto_livro">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="paginas_livro">Páginas: </label>
+                <input id="paginas_livro" type="number" name="paginas_livro">
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <label for="editora_livro">Editora: </label>
+                <input id="editora_livro" type="text" name="editora_livro">
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <label for="quantidade_livro">Quantidade: </label>
+                <input id="quantidade_livro" type="number" name="quantidade_livro">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarLivro()" >SALVAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tílulo</th>
+                <th>Autor</th>
+                <th>Páginas</th>
+                <th>Editora</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_livro">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-quadro" class="section-tabs">
+        <div id="tab_quadro" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-25">
-                <label for="id-quadro">ID: </label>
-                <span id="id-quadro">0</span>
+                <label for="id_quadro">ID: </label>
+                <span id="id_quadro">0</span>
               </div>
               <div class="coluna-25">
-                <label for="altura-quadro">Altura: </label>
-                <input id="altura-quadro" type="text" name="altura-quadro" >
+                <label for="altura_quadro">Altura: </label>
+                <input id="altura_quadro" type="text" name="altura_quadro" >
               </div>
               <div class="coluna-25">
-                <label for="largura-quadro">Largura: </label>
-                <input id="largura-quadro" type="text" name="largura-quadro">
+                <label for="largura_quadro">Largura: </label>
+                <input id="largura_quadro" type="text" name="largura_quadro">
               </div>
               <div class="coluna-25">
-                <label for="marca-quadro">Marca: </label>
-                <input id="marca-quadro" type="text" name="marca-quadro">
+                <label for="marca_quadro">Marca: </label>
+                <input id="marca_quadro" type="text" name="marca_quadro">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-25">
-                <label for="tipo-quadro">Tipo: </label>
-                <input type="radio" name="tipo-quadro" value="negro">
-                <label for="tipo-quadro">Negro</label>
-                <input type="radio" name="tipo-quadro" value="branco">
-                <label for="tipo-quadro">Branco</label>
+                <label for="tipo_quadro">Tipo: </label>
+                <input type="radio" name="tipo_quadro" value="negro">
+                <label for="tipo_quadro">Negro</label>
+                <input type="radio" name="tipo_quadro" value="branco">
+                <label for="tipo_quadro">Branco</label>
               </div>
               <div class="coluna-25">
-                <label for="quantidade-quadro">Quantidade: </label>
-                <input id="quantidade-quadro" type="number" name="quantidade-quadro">
+                <label for="quantidade_quadro">Quantidade: </label>
+                <input id="quantidade_quadro" type="number" name="quantidade_quadro">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarQuadro()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Largura</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_quadro">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-giz" class="section-tabs">
+        <div id="tab_giz" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-giz">ID: </label>
-                <span id="id-giz">0</span>
+                <label for="id_giz">ID: </label>
+                <span id="id_giz">0</span>
               </div>
               <div class="coluna-33">
-                <label for="altura-giz">Altura: </label>
-                <input id="altura-giz" type="text" name="altura-giz" >
+                <label for="altura_giz">Altura: </label>
+                <input id="altura_giz" type="text" name="altura_giz" >
               </div>
               <div class="coluna-33">
-                <label for="unidades-giz">Unidades: </label>
-                <input id="unidades-giz" type="number" name="unidades-giz">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="marca-giz">Marca: </label>
-                <input id="marca-giz" type="text" name="marca-giz">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-giz">Quantidade: </label>
-                <input id="quantidade-giz" type="number" name="quantidade-giz">
+                <label for="unidades_giz">Unidades: </label>
+                <input id="unidades_giz" type="number" name="unidades_giz">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="marca_giz">Marca: </label>
+                <input id="marca_giz" type="text" name="marca_giz">
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <label for="quantidade_giz">Quantidade: </label>
+                <input id="quantidade_giz" type="number" name="quantidade_giz">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarGiz()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Unidades</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_giz">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-apagador" class="section-tabs">
+        <div id="tab_apagador" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-apagador">ID: </label>
-                <span id="id-apagador">0</span>
+                <label for="id_apagador">ID: </label>
+                <span id="id_apagador">0</span>
               </div>
               <div class="coluna-33">
-                <label for="altura-apagador">Altura: </label>
-                <input id="altura-apagador" type="text" name="altura-apagador" >
+                <label for="altura_apagador">Altura: </label>
+                <input id="altura_apagador" type="text" name="altura_apagador" >
               </div>
               <div class="coluna-33">
-                <label for="largura-apagador">Largura: </label>
-                <input id="largura-apagador" type="text" name="largura-apagador">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="tipo-apagador">Tipo: </label>
-                <input type="radio" name="tipo-apagador" value="negro">
-                <label for="tipo-apagador">Negro</label>
-                <input type="radio" name="tipo-apagador" value="branco">
-                <label for="tipo-apagador">Branco</label>
-              </div>
-              <div class="coluna-33">
-                <label for="marca-apagador">Marca: </label>
-                <input id="marca-apagador" type="text" name="marca-apagador">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-apagador">Quantidade: </label>
-                <input id="quantidade-apagador" type="number" name="quantidade-apagador">
+                <label for="largura_apagador">Largura: </label>
+                <input id="largura_apagador" type="text" name="largura_apagador">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="tipo_apagador">Tipo: </label>
+                <input type="radio" name="tipo_apagador" value="negro">
+                <label for="tipo_apagador">Negro</label>
+                <input type="radio" name="tipo_apagador" value="branco">
+                <label for="tipo_apagador">Branco</label>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <label for="marca_apagador">Marca: </label>
+                <input id="marca_apagador" type="text" name="marca_apagador">
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <label for="quantidade_apagador">Quantidade: </label>
+                <input id="quantidade_apagador" type="number" name="quantidade_apagador">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarApagador()" >SALVAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Largura</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_apagador">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-pincel" class="section-tabs">
+        <div id="tab_pincel" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-pincel">ID: </label>
-                <span id="id-pincel">0</span>
+                <label for="id_pincel">ID: </label>
+                <span id="id_pincel">0</span>
               </div>
               <div class="coluna-33">
-                <label for="altura-pincel">Altura: </label>
-                <input id="altura-pincel" type="text" name="altura-pincel" >
+                <label for="altura_pincel">Altura: </label>
+                <input id="altura_pincel" type="text" name="altura_pincel" >
               </div>
               <div class="coluna-33">
-                <label for="cor-pincel">Cor: </label>
-                <input id="cor-pincel" type="text" name="cor-pincel">
-              </div>
-            </div>
-            <div class="linha">
-              <div class="coluna-33">
-                <label for="marca-pincel">Marca: </label>
-                <input id="marca-pincel" type="text" name="marca-pincel">
-              </div>
-              <div class="coluna-33">
-                <label for="quantidade-pincel">Quantidade: </label>
-                <input id="quantidade-pincel" type="number" name="quantidade-pincel">
+                <label for="cor_pincel">Cor: </label>
+                <input id="cor_pincel" type="text" name="cor_pincel">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <label for="marca_pincel">Marca: </label>
+                <input id="marca_pincel" type="text" name="marca_pincel">
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <label for="quantidade_pincel">Quantidade: </label>
+                <input id="quantidade_pincel" type="number" name="quantidade_pincel">
+              </div>
+            </div>
+            <div class="linha">
+              <div class="coluna-33">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarPincel()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+              </div>
+              <div class="coluna-33">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Cor</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_pincel">
+
+            </tbody>
+          </table>
         </div>
       </div> <!-- id="container-tabs"> -->
     </div> <!-- <div id="container"> -->

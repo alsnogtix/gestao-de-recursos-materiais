@@ -25,141 +25,185 @@
     <div id="container">
       <div id="container-tabs">
         <div id="header-tabs">
-          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab-lapis')" type="button" name="button">Lápis</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-caderno')" type="button" name="button">Caderno</button>
-          <button class="button-tabs" onclick="abrirTab(event, 'tab-caneta')" type="button" name="button">Caneta</button>
+          <button id="tab-padrao" class="button-tabs" onclick="abrirTab(event, 'tab_lapis')" type="button" name="button">Lápis</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_caderno')" type="button" name="button">Caderno</button>
+          <button class="button-tabs" onclick="abrirTab(event, 'tab_caneta')" type="button" name="button">Caneta</button>
         </div> <!-- <div id="header-tabs"> -->
 
-        <div id="tab-lapis" class="section-tabs">
+        <div id="tab_lapis" class="section-tabs">
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-lapis">ID: </label>
-                <span id="id-lapis">0</span>
+                <label for="id_lapis">ID: </label>
+                <span id="id_lapis">0</span>
               </div>
               <div class="coluna-33">
-                <label for="altura-lapis">Altura: </label>
-                <input id="altura-lapis" type="text" name="altura-lapis" >
+                <label for="altura_lapis">Altura: </label>
+                <input id="altura_lapis" type="text" name="altura_lapis" >
               </div>
               <div class="coluna-33">
-                <label for="marca-lapis">Marca: </label>
-                <input id="marca-lapis" type="text" name="marca-lapis">
+                <label for="marca_lapis">Marca: </label>
+                <input id="marca_lapis" type="text" name="marca_lapis">
               </div>
             </div>
 
             <div class="linha">
               <div class="coluna-33">
-                <label for="tipo-lapis">Tipo: </label>
-                <input type="radio" name="tipo-lapis" value="desenho">
-                <label for="tipo-lapis">Desenho</label>
-                <input type="radio" name="tipo-lapis" value="comum">
-                <label for="tipo-lapis">Comum</label>
+                <label for="tipo_lapis">Tipo: </label>
+                <input type="radio" name="tipo_lapis" value="desenho">
+                <label for="tipo_lapis">Desenho</label>
+                <input type="radio" name="tipo_lapis" value="comum">
+                <label for="tipo_lapis">Comum</label>
               </div>
               <div class="coluna-33">
-                <label for="quantidade-lapis">Quantidade: </label>
-                <input id="quantidade-lapis" type="number" name="quantidade-lapis">
+                <label for="quantidade_lapis">Quantidade: </label>
+                <input id="quantidade_lapis" type="number" name="quantidade_lapis">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarLapis()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_lapis">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-caderno" class="section-tabs">
+        <div id="tab_caderno" class="section-tabs">
           <form class=""  method="post">
             <div class="linha">
               <div class="coluna-25">
-                <label for="id-caderno">ID: </label>
-                <span id="id-caderno">0</span>
+                <label for="id_caderno">ID: </label>
+                <span id="id_caderno">0</span>
               </div>
               <div class="coluna-25">
-                <label for="altura-caderno">Altura: </label>
-                <input id="altura-caderno" type="text" name="altura-caderno" >
+                <label for="altura_caderno">Altura: </label>
+                <input id="altura_caderno" type="text" name="altura_caderno" >
               </div>
               <div class="coluna-25">
-                <label for="largura-caderno">Largura: </label>
-                <input id="largura-caderno" type="text" name="largura-caderno" value="">
+                <label for="largura_caderno">Largura: </label>
+                <input id="largura_caderno" type="text" name="largura_caderno" value="">
               </div>
               <div class="coluna-25">
-                <label for="materias-caderno">Matérias: </label>
-                <input id="materias-caderno" type="number" name="materias-caderno" value="">
+                <label for="materias_caderno">Matérias: </label>
+                <input id="materias_caderno" type="number" name="materias_caderno" value="">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-25">
-                <label for="folhas-caderno">Folhas: </label>
-                <input id="folhas-caderno" type="number" name="folhas-caderno">
+                <label for="folhas_caderno">Folhas: </label>
+                <input id="folhas_caderno" type="number" name="folhas_caderno">
               </div>
               <div class="coluna-25">
-                <label for="marca-caderno">Marca: </label>
-                <input id="marca-caderno" type="text" name="marca-caderno">
+                <label for="marca_caderno">Marca: </label>
+                <input id="marca_caderno" type="text" name="marca_caderno">
               </div>
               <div class="coluna-25">
-                <label for="quantidade-caderno">Quantidade: </label>
-                <input id="quantidade-caderno" type="number" name="quantidade-caderno">
+                <label for="quantidade_caderno">Quantidade: </label>
+                <input id="quantidade_caderno" type="number" name="quantidade_caderno">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarCaderno()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Largura</th>
+                <th>Matérias</th>
+                <th>Folhas</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_caderno">
+
+            </tbody>
+          </table>
         </div>
 
-        <div id="tab-caneta" class="section-tabs">
+        <div id="tab_caneta" class="section-tabs">
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
-                <label for="id-caneta">ID: </label>
-                <span id="id-caneta">0</span>
+                <label for="id_caneta">ID: </label>
+                <span id="id_caneta">0</span>
               </div>
               <div class="coluna-33">
-                <label for="altura-caneta">Altura: </label>
-                <input id="altura-caneta" type="text" name="altura-caneta">
+                <label for="altura_caneta">Altura: </label>
+                <input id="altura_caneta" type="text" name="altura_caneta">
               </div>
               <div class="coluna-33">
-                <label for="cor-caneta">Cor: </label>
-                <input id="cor-caneta" type="text" name="cor-caneta">
+                <label for="cor_caneta">Cor: </label>
+                <input id="cor_caneta" type="text" name="cor_caneta">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
                 <label for="marca-caneta">Marca: </label>
-                <input id="marca-caneta" type="text" name="marca-caneta">
+                <input id="marca_caneta" type="text" name="marca_caneta">
               </div>
               <div class="coluna-33">
-                <label for="quantidade-caneta">Quantidade: </label>
-                <input id="quantidade-caneta" type="number" name="quantidade-caneta">
+                <label for="quantidade_caneta">Quantidade: </label>
+                <input id="quantidade_caneta" type="number" name="quantidade_caneta">
               </div>
             </div>
             <div class="linha">
               <div class="coluna-33">
-                <input type="submit" name="" value="SALVAR">
+                <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarCaneta()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="DELETAR">
+                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
               </div>
               <div class="coluna-33">
-                <input type="submit" name="" value="BUSCAR">
+                <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
               </div>
             </div>
           </form>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Altura</th>
+                <th>Cor</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody id="lista_caneta">
+
+            </tbody>
+          </table>
         </div>
       </div> <!-- <div id="container-tabs"> -->
 

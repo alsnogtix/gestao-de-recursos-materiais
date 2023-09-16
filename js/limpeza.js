@@ -56,9 +56,6 @@ class SabaoEmBarra{
   }
 }
 
-
-
-
 class Bd{
   constructor(){
       let id = localStorage.getItem('id');
@@ -247,8 +244,6 @@ function carregaListaItens(idTab){
     default:
 
   }
-
-
 }
 
 
