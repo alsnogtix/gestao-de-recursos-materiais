@@ -1,12 +1,14 @@
 // criação das classes
 class Livro{
-  constructor(id, titulo, autor, paginas, editora, quantidade){
+  constructor(id, titulo, autor, paginas, editora, quantidade, tipo, subtipo){
     this.id_livro = id;
     this.titulo_livro = titulo;
     this.autor_livro = autor;
     this.paginas_livro = paginas;
     this.editora_livro = editora;
     this.quantidade_livro = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -16,13 +18,15 @@ class Livro{
   }
 }
 class Quadro{
-  constructor(id, altura, largura, marca, tipo, quantidade){
+  constructor(id, altura, largura, marca, modelo, quantidade, tipo, subtipo){
     this.id_quadro = id;
     this.altura_quadro = altura;
     this.largura_quadro = largura;
     this.marca_quadro = marca;
-    this.tipo_quadro = tipo;
+    this.tipo_quadro = modelo;
     this.quantidade_quadro = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -32,12 +36,14 @@ class Quadro{
   }
 }
 class Giz{
-  constructor(id, altura, unidades, marca, quantidade){
+  constructor(id, altura, unidades, marca, quantidade, tipo, subtipo){
     this.id_giz = id;
     this.altura_giz = altura;
     this.unidades_giz = unidades;
     this.marca_giz = marca;
     this.quantidade_giz = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -47,13 +53,15 @@ class Giz{
   }
 }
 class Apagador{
-  constructor(id, altura, largura, tipo, marca, quantidade){
+  constructor(id, altura, largura, modelo, marca, quantidade, tipo, subtipo){
     this.id_apagador = id;
     this.altura_apagador = altura;
     this.largura_apagador = largura;
-    this.tipo_apagador = tipo;
+    this.tipo_apagador = modelo;
     this.marca_apagador = marca;
     this.quantidade_apagador = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -63,12 +71,14 @@ class Apagador{
   }
 }
 class Pincel{
-  constructor(id, altura, cor, marca, quantidade){
+  constructor(id, altura, cor, marca, quantidade, tipo, subtipo){
     this.id_pincel = id;
     this.altura_pincel = altura;
     this.cor_pincel = cor;
     this.marca_pincel = marca;
     this.quantidade_pincel = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -137,12 +147,14 @@ function cadastrarLivro(){
   let editora = document.getElementById('editora_livro');
   let quantidade = document.getElementById('quantidade_livro');
 
-  let livro = new Livro(id.innerText,
+  let livro = new Livro((id.innerText == '0')? bd.getProximoId() : id.innerText,
                         titulo.value,
                         autor.value,
                         paginas.value,
                         editora.value,
-                        quantidade.value);
+                        quantidade.value,
+                        'didatico',
+                        'livro');
 
   if(livro.validarDados()){
     bd.gravar(livro);
@@ -160,12 +172,14 @@ function cadastrarQuadro(){
   let tipo = document.querySelector('input[name="tipo_quadro"]:checked');
   let quantidade = document.getElementById('quantidade_quadro');
 
-  let quadro = new Quadro(id.innerText,
+  let quadro = new Quadro((id.innerText == '0')? bd.getProximoId() : id.innerText,
                           altura.value,
                           largura.value,
                           marca.value,
                           tipo.value,
-                          quantidade.value);
+                          quantidade.value,
+                          'didatico',
+                          'quadro');
 
   if(quadro.validarDados()){
     bd.gravar(quadro);
@@ -182,11 +196,13 @@ function cadastrarGiz(){
   let marca = document.getElementById('marca_giz');
   let quantidade = document.getElementById('quantidade_giz');
 
-  let giz = new Giz(id.innerText,
+  let giz = new Giz((id.innerText == '0')? bd.getProximoId() : id.innerText,
                     altura.value,
                     unidades.value,
                     marca.value,
-                    quantidade.value);
+                    quantidade.value,
+                    'didatico',
+                    'giz');
 
   if(giz.validarDados()){
     bd.gravar(giz);
@@ -204,12 +220,14 @@ function cadastrarApagador(){
   let marca = document.getElementById('marca_apagador');
   let quantidade = document.getElementById('quantidade_apagador');
 
-  let apagador = new Apagador(id.innerText,
+  let apagador = new Apagador((id.innerText == '0')? bd.getProximoId() : id.innerText,
                               altura.value,
                               largura.value,
                               tipo.value,
                               marca.value,
-                              quantidade.value);
+                              quantidade.value,
+                              'didatico',
+                              'apagador');
 
   if(apagador.validarDados()){
     bd.gravar(apagador);
@@ -226,11 +244,13 @@ function cadastrarPincel(){
   let marca = document.getElementById('marca_pincel');
   let quantidade = document.getElementById('quantidade_pincel');
 
-  let pincel = new Pincel(id.innerText,
+  let pincel = new Pincel((id.innerText == '0')? bd.getProximoId() : id.innerText,
                           altura.value,
                           cor.value,
                           marca.value,
-                          quantidade.value);
+                          quantidade.value,
+                          'didatico',
+                          'pincel');
 
   if(pincel.validarDados()){
     bd.gravar(pincel);
@@ -249,63 +269,73 @@ function carregaListaItens(idTab){
       let lista_livro = document.getElementById('lista_livro');
       lista_livro.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_livro.insertRow();
-        linha.insertCell(0).innerHTML = item.id_livro;
-        linha.insertCell(1).innerHTML = item.titulo_livro;
-        linha.insertCell(2).innerHTML = item.autor_livro;
-        linha.insertCell(3).innerHTML = item.paginas_livro;
-        linha.insertCell(4).innerHTML = item.editora_livro;
-        linha.insertCell(5).innerHTML = item.quantidade_livro;
+        if(item.subtipo == 'livro'){
+          let linha = lista_livro.insertRow();
+          linha.insertCell(0).innerHTML = item.id_livro;
+          linha.insertCell(1).innerHTML = item.titulo_livro;
+          linha.insertCell(2).innerHTML = item.autor_livro;
+          linha.insertCell(3).innerHTML = item.paginas_livro;
+          linha.insertCell(4).innerHTML = item.editora_livro;
+          linha.insertCell(5).innerHTML = item.quantidade_livro;
+        }
       });
       break;
     case 'tab_quadro':
       let lista_quadro = document.getElementById('lista_quadro');
       lista_quadro.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_quadro.insertRow();
-        linha.insertCell(0).innerHTML = item.id_quadro;
-        linha.insertCell(1).innerHTML = item.altura_quadro;
-        linha.insertCell(2).innerHTML = item.largura_quadro;
-        linha.insertCell(3).innerHTML = item.marca_quadro;
-        linha.insertCell(4).innerHTML = item.tipo_quadro;
-        linha.insertCell(5).innerHTML = item.quantidade_quadro;
+        if(item.subtipo == 'quadro'){
+          let linha = lista_quadro.insertRow();
+          linha.insertCell(0).innerHTML = item.id_quadro;
+          linha.insertCell(1).innerHTML = item.altura_quadro;
+          linha.insertCell(2).innerHTML = item.largura_quadro;
+          linha.insertCell(3).innerHTML = item.marca_quadro;
+          linha.insertCell(4).innerHTML = item.tipo_quadro;
+          linha.insertCell(5).innerHTML = item.quantidade_quadro;
+        }
       });
       break;
     case 'tab_giz':
       let lista_giz = document.getElementById('lista_giz');
       lista_giz.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_giz.insertRow();
-        linha.insertCell(0).innerHTML = item.id_giz;
-        linha.insertCell(1).innerHTML = item.altura_giz;
-        linha.insertCell(2).innerHTML = item.unidades_giz;
-        linha.insertCell(3).innerHTML = item.marca_giz;
-        linha.insertCell(4).innerHTML = item.quantidade_agua_sanitaria;
+        if(item.subtipo == 'giz'){
+          let linha = lista_giz.insertRow();
+          linha.insertCell(0).innerHTML = item.id_giz;
+          linha.insertCell(1).innerHTML = item.altura_giz;
+          linha.insertCell(2).innerHTML = item.unidades_giz;
+          linha.insertCell(3).innerHTML = item.marca_giz;
+          linha.insertCell(4).innerHTML = item.quantidade_giz;
+        }
       });
       break;
     case 'tab_apagador':
       let lista_apagador = document.getElementById('lista_apagador');
       lista_apagador.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_apagador.insertRow();
-        linha.insertCell(0).innerHTML = item.id_apagador;
-        linha.insertCell(1).innerHTML = item.altura_apagador;
-        linha.insertCell(2).innerHTML = item.largura_apagador;
-        linha.insertCell(3).innerHTML = item.tipo_apagador;
-        linha.insertCell(4).innerHTML = item.marca_apagador;
-        linha.insertCell(5).innerHTML = item.quantidade_apagador;
+        if(item.subtipo == 'apagador'){
+          let linha = lista_apagador.insertRow();
+          linha.insertCell(0).innerHTML = item.id_apagador;
+          linha.insertCell(1).innerHTML = item.altura_apagador;
+          linha.insertCell(2).innerHTML = item.largura_apagador;
+          linha.insertCell(3).innerHTML = item.tipo_apagador;
+          linha.insertCell(4).innerHTML = item.marca_apagador;
+          linha.insertCell(5).innerHTML = item.quantidade_apagador;
+        }
       });
       break;
     case 'tab_pincel':
       let lista_pincel = document.getElementById('lista_pincel');
       lista_pincel.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_pincel.insertRow();
-        linha.insertCell(0).innerHTML = item.id_pincel;
-        linha.insertCell(1).innerHTML = item.altura_pincel;
-        linha.insertCell(2).innerHTML = item.cor_pincel;
-        linha.insertCell(3).innerHTML = item.marca_pincel;
-        linha.insertCell(4).innerHTML = item.quantidade_pincel;
+        if(item.subtipo == 'pincel'){
+          let linha = lista_pincel.insertRow();
+          linha.insertCell(0).innerHTML = item.id_pincel;
+          linha.insertCell(1).innerHTML = item.altura_pincel;
+          linha.insertCell(2).innerHTML = item.cor_pincel;
+          linha.insertCell(3).innerHTML = item.marca_pincel;
+          linha.insertCell(4).innerHTML = item.quantidade_pincel;
+        }
       });
       break;
     default:

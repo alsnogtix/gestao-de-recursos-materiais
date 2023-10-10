@@ -1,11 +1,13 @@
 // criação das classes
 class Lapis{
-  constructor(id, altura, marca, tipo, quantidade){
+  constructor(id, altura, marca, modelo, quantidade, tipo, subtipo){
     this.id_lapis = id;
     this.altura_lapis = altura;
     this.marca_lapis = marca;
-    this.tipo_lapis = tipo;
+    this.tipo_lapis = modelo;
     this.quantidade_lapis = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -15,7 +17,7 @@ class Lapis{
   }
 }
 class Caderno{
-  constructor(id, altura, largura, materias, folhas, marca, quantidade){
+  constructor(id, altura, largura, materias, folhas, marca, quantidade, tipo, subtipo){
     this.id_caderno = id;
     this.altura_caderno = altura;
     this.largura_caderno = largura;
@@ -23,6 +25,8 @@ class Caderno{
     this.folhas_caderno = folhas;
     this.marca_caderno = marca;
     this.quantidade_caderno = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -32,12 +36,14 @@ class Caderno{
   }
 }
 class Caneta{
-  constructor(id, altura, cor, marca, quantidade){
+  constructor(id, altura, cor, marca, quantidade, tipo, subtipo){
     this.id_caneta = id;
     this.altura_caneta = altura;
     this.cor_caneta = cor;
     this.marca_caneta = marca;
     this.quantidade_caneta = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -104,11 +110,13 @@ function cadastrarLapis(){
   let tipo = document.querySelector('input[name="tipo_lapis"]:checked');
   let quantidade = document.getElementById('quantidade_lapis');
 
-  let lapis = new Lapis(id.innerText,
+  let lapis = new Lapis((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                         altura.value,
                         marca.value,
                         tipo.value,
-                        quantidade.value);
+                        quantidade.value,
+                        'escolar',
+                        'lapis');
 
   if(lapis.validarDados()){
     bd.gravar(lapis);
@@ -127,13 +135,15 @@ function cadastrarCaderno(){
   let marca = document.getElementById('marca_caderno');
   let quantidade = document.getElementById('quantidade_caderno');
 
-  let caderno = new Caderno(id.innerText,
+  let caderno = new Caderno((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                             altura.value,
                             largura.value,
                             materias.value,
                             folhas.value,
                             marca.value,
-                            quantidade.value);
+                            quantidade.value,
+                            'escolar',
+                            'caderno');
 
   if(caderno.validarDados()){
     bd.gravar(caderno);
@@ -150,11 +160,13 @@ function cadastrarCaneta(){
   let marca = document.getElementById('marca_caneta');
   let quantidade = document.getElementById('quantidade_caneta');
 
-  let caneta = new Caneta(id.innerText,
+  let caneta = new Caneta((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                           altura.value,
                           cor.value,
                           marca.value,
-                          quantidade.value);
+                          quantidade.value,
+                          'escolar',
+                          'caneta');
 
   if(caneta.validarDados()){
     bd.gravar(caneta);
@@ -173,38 +185,44 @@ function carregaListaItens(idTab){
       let lista_lapis = document.getElementById('lista_lapis');
       lista_lapis.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_lapis.insertRow();
-        linha.insertCell(0).innerHTML = item.id_lapis;
-        linha.insertCell(1).innerHTML = item.altura_lapis;
-        linha.insertCell(2).innerHTML = item.marca_lapis;
-        linha.insertCell(3).innerHTML = item.tipo_lapis;
-        linha.insertCell(4).innerHTML = item.quantidade_lapis;
+        if(item.subtipo == 'lapis'){
+          let linha = lista_lapis.insertRow();
+          linha.insertCell(0).innerHTML = item.id_lapis;
+          linha.insertCell(1).innerHTML = item.altura_lapis;
+          linha.insertCell(2).innerHTML = item.marca_lapis;
+          linha.insertCell(3).innerHTML = item.tipo_lapis;
+          linha.insertCell(4).innerHTML = item.quantidade_lapis;
+        }
       });
       break;
     case 'tab_caderno':
       let lista_caderno = document.getElementById('lista_caderno');
       lista_caderno.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_caderno.insertRow();
-        linha.insertCell(0).innerHTML = item.id_caderno;
-        linha.insertCell(1).innerHTML = item.altura_caderno;
-        linha.insertCell(2).innerHTML = item.largura_caderno;
-        linha.insertCell(3).innerHTML = item.materias_caderno;
-        linha.insertCell(4).innerHTML = item.folhas_caderno;
-        linha.insertCell(5).innerHTML = item.marca_caderno;
-        linha.insertCell(6).innerHTML = item.quantidade_caderno;
+        if(item.subtipo == 'caderno'){
+          let linha = lista_caderno.insertRow();
+          linha.insertCell(0).innerHTML = item.id_caderno;
+          linha.insertCell(1).innerHTML = item.altura_caderno;
+          linha.insertCell(2).innerHTML = item.largura_caderno;
+          linha.insertCell(3).innerHTML = item.materias_caderno;
+          linha.insertCell(4).innerHTML = item.folhas_caderno;
+          linha.insertCell(5).innerHTML = item.marca_caderno;
+          linha.insertCell(6).innerHTML = item.quantidade_caderno;
+        }
       });
       break;
     case 'tab_caneta':
       let lista_caneta = document.getElementById('lista_caneta');
       lista_caneta.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_caneta.insertRow();
-        linha.insertCell(0).innerHTML = item.id_caneta;
-        linha.insertCell(1).innerHTML = item.altura_caneta;
-        linha.insertCell(2).innerHTML = item.cor_caneta;
-        linha.insertCell(3).innerHTML = item.marca_caneta;
-        linha.insertCell(4).innerHTML = item.quantidade_caneta;
+        if(item.subtipo == 'caneta'){
+          let linha = lista_caneta.insertRow();
+          linha.insertCell(0).innerHTML = item.id_caneta;
+          linha.insertCell(1).innerHTML = item.altura_caneta;
+          linha.insertCell(2).innerHTML = item.cor_caneta;
+          linha.insertCell(3).innerHTML = item.marca_caneta;
+          linha.insertCell(4).innerHTML = item.quantidade_caneta;
+        }
       });
       break;
     default:

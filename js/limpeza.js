@@ -1,10 +1,12 @@
 // criação de classes
 class Alvejante{
-  constructor(id, marca, unidades, quantidade){
+  constructor(id, marca, unidades, quantidade, tipo, subtipo){
     this.id_alvejante = id;
     this.marca_alvejante = marca;
     this.unidades_alvejante = unidades;
     this.quantidade_alvejante = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -14,11 +16,13 @@ class Alvejante{
   }
 }
 class SabaoEmPo{
-  constructor(id, marca, unidades, quantidade){
+  constructor(id, marca, unidades, quantidade, tipo, subtipo){
     this.id_sabao_em_po = id;
     this.marca_sabao_em_po = marca;
     this.unidades_sabao_em_po = unidades;
     this.quantidade_sabao_em_po = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -28,11 +32,13 @@ class SabaoEmPo{
   }
 }
 class AguaSanitaria{
-  constructor(id, marca, unidades, quantidade){
+  constructor(id, marca, unidades, quantidade, tipo, subtipo){
     this.id_agua_sanitaria = id;
     this.marca_agua_sanitaria = marca;
     this.unidades_agua_sanitaria = unidades;
     this.quantidade_agua_sanitaria = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -42,11 +48,13 @@ class AguaSanitaria{
   }
 }
 class SabaoEmBarra{
-  constructor(id, marca, unidades, quantidade){
+  constructor(id, marca, unidades, quantidade, tipo, subtipo){
     this.id_sabao_em_barra = id;
     this.marca_sabao_em_barra = marca;
     this.unidades_sabao_em_barra = unidades;
     this.quantidade_sabao_em_barra = quantidade;
+    this.tipo = tipo;
+    this.subtipo = subtipo;
   }
   validarDados(){
       for(let i in this){
@@ -114,10 +122,13 @@ function cadastrarAlvejante(){
   let quantidade = document.getElementById('quantidade_alvejante');
 
 
-  let alvejante = new Alvejante(id.innerText,
+
+  let alvejante = new Alvejante((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                                 marca.value,
                                 unidades.value,
-                                quantidade.value);
+                                quantidade.value,
+                                'limpaza',
+                                'alvejante');
 
   if(alvejante.validarDados()){
     bd.gravar(alvejante);
@@ -135,10 +146,12 @@ function cadastrarSabaoEmPo(){
   let quantidade = document.getElementById('quantidade_sabao_em_po');
 
 
-  let sabaoEmPo = new SabaoEmPo(id.innerText,
+  let sabaoEmPo = new SabaoEmPo((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                                 marca.value,
                                 unidades.value,
-                                quantidade.value);
+                                quantidade.value,
+                                'limpeza',
+                                'sabao_em_po');
 
   if(sabaoEmPo.validarDados()){
     bd.gravar(sabaoEmPo);
@@ -156,10 +169,12 @@ function cadastrarAguaSanitaria(){
   let quantidade = document.getElementById('quantidade_agua_sanitaria');
 
 
-  let aguaSanitaria = new AguaSanitaria(id.innerText,
+  let aguaSanitaria = new AguaSanitaria((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                                 marca.value,
                                 unidades.value,
-                                quantidade.value);
+                                quantidade.value,
+                                'limpeza',
+                                'agua_sanitaria');
 
   if(aguaSanitaria.validarDados()){
     bd.gravar(aguaSanitaria);
@@ -177,10 +192,12 @@ function cadastrarSabaoEmBarra(){
   let quantidade = document.getElementById('quantidade_sabao_em_barra');
 
 
-  let sabaoEmBarra = new SabaoEmBarra(id.innerText,
+  let sabaoEmBarra = new SabaoEmBarra((id.innerText == '0') ? bd.getProximoId() : id.innerText,
                                 marca.value,
                                 unidades.value,
-                                quantidade.value);
+                                quantidade.value,
+                                'limpeza',
+                                'sabao_em_barra');
 
   if(sabaoEmBarra.validarDados()){
     bd.gravar(sabaoEmBarra);
@@ -201,44 +218,53 @@ function carregaListaItens(idTab){
       let lista_alvejante = document.getElementById('lista_alvejante');
       lista_alvejante.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_alvejante.insertRow();
-        linha.insertCell(0).innerHTML = item.id_alvejante;
-        linha.insertCell(1).innerHTML = item.marca_alvejante;
-        linha.insertCell(2).innerHTML = item.unidades_alvejante;
-        linha.insertCell(3).innerHTML = item.quantidade_alvejante;
+        if(item.subtipo == 'alvejante'){
+          let linha = lista_alvejante.insertRow();
+          linha.insertCell(0).innerHTML = item.id_alvejante;
+          linha.insertCell(1).innerHTML = item.marca_alvejante;
+          linha.insertCell(2).innerHTML = item.unidades_alvejante;
+          linha.insertCell(3).innerHTML = item.quantidade_alvejante;
+        }
+
       });
       break;
     case 'tab_sabao_em_po':
       let lista_sabao_em_po = document.getElementById('lista_sabao_em_po');
       lista_sabao_em_po.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_sabao_em_po.insertRow();
-        linha.insertCell(0).innerHTML = item.id_sabao_em_po;
-        linha.insertCell(1).innerHTML = item.marca_sabao_em_po;
-        linha.insertCell(2).innerHTML = item.unidades_sabao_em_po;
-        linha.insertCell(3).innerHTML = item.quantidade_sabao_em_po;
+        if(item.subtipo == 'sabao_em_po'){
+          let linha = lista_sabao_em_po.insertRow();
+          linha.insertCell(0).innerHTML = item.id_sabao_em_po;
+          linha.insertCell(1).innerHTML = item.marca_sabao_em_po;
+          linha.insertCell(2).innerHTML = item.unidades_sabao_em_po;
+          linha.insertCell(3).innerHTML = item.quantidade_sabao_em_po;
+        }
       });
       break;
     case 'tab_agua_sanitaria':
       let lista_agua_sanitaria = document.getElementById('lista_agua_sanitaria');
       lista_agua_sanitaria.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_agua_sanitaria.insertRow();
-        linha.insertCell(0).innerHTML = item.id_agua_sanitaria;
-        linha.insertCell(1).innerHTML = item.marca_agua_sanitaria;
-        linha.insertCell(2).innerHTML = item.unidades_agua_sanitaria;
-        linha.insertCell(3).innerHTML = item.quantidade_agua_sanitaria;
+        if (item.subtipo == 'agua_sanitaria'){
+          let linha = lista_agua_sanitaria.insertRow();
+          linha.insertCell(0).innerHTML = item.id_agua_sanitaria;
+          linha.insertCell(1).innerHTML = item.marca_agua_sanitaria;
+          linha.insertCell(2).innerHTML = item.unidades_agua_sanitaria;
+          linha.insertCell(3).innerHTML = item.quantidade_agua_sanitaria;
+        }
       });
       break;
     case 'tab_sabao_em_barra':
       let lista_sabao_em_barra = document.getElementById('lista_sabao_em_barra');
       lista_sabao_em_barra.innerHTML = '';
       itens.forEach((item, i) => {
-        let linha = lista_sabao_em_barra.insertRow();
-        linha.insertCell(0).innerHTML = item.id_sabao_em_barra;
-        linha.insertCell(1).innerHTML = item.marca_sabao_em_barra;
-        linha.insertCell(2).innerHTML = item.unidades_sabao_em_barra;
-        linha.insertCell(3).innerHTML = item.quantidade_sabao_em_barra;
+        if(item.subtipo == 'sabao_em_barra'){
+          let linha = lista_sabao_em_barra.insertRow();
+          linha.insertCell(0).innerHTML = item.id_sabao_em_barra;
+          linha.insertCell(1).innerHTML = item.marca_sabao_em_barra;
+          linha.insertCell(2).innerHTML = item.unidades_sabao_em_barra;
+          linha.insertCell(3).innerHTML = item.quantidade_sabao_em_barra;
+        }
       });
       break;
     default:
