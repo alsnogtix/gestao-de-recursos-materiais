@@ -6,6 +6,12 @@
     <title>Gestão de Materiais</title>
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="css/didatico.css">
+
+    <!-- Icon google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,0,-25" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,-25" />
+
+
 </head>
 <body>
     <nav id="container-nav">
@@ -37,6 +43,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_livro')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_livro">ID: </label>
                 <span id="id_livro">0</span>
               </div>
@@ -68,7 +77,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarLivro()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -96,6 +105,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-25">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_quadro')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_quadro">ID: </label>
                 <span id="id_quadro">0</span>
               </div>
@@ -130,7 +142,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarQuadro()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -158,6 +170,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_giz')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_giz">ID: </label>
                 <span id="id_giz">0</span>
               </div>
@@ -185,7 +200,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarGiz()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -212,6 +227,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_apagador')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_apagador">ID: </label>
                 <span id="id_apagador">0</span>
               </div>
@@ -246,7 +264,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarApagador()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -274,6 +292,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_pincel')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_pincel">ID: </label>
                 <span id="id_pincel">0</span>
               </div>
@@ -301,7 +322,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarPincel()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -333,5 +354,10 @@
 
 <!-- Informações importantes
 criação do logo em: https://www.freelogodesign.org/
+
+<span class="material-symbols-outlined">
+edit
+</span>
+
 
 -->

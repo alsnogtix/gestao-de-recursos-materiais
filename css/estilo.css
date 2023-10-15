@@ -99,6 +99,21 @@ ul{
 
 /* formulario */
 
+.btn-deletar span{
+  color: #b10333;
+}
+
+.btn-limpar{
+  background-color: #fff;
+  border: 1px solid #D3D3D3;
+  border-radius: 5px;
+  margin: 0 6px 0 4px;
+
+}
+
+.btn-limpar:hover{
+  cursor: pointer;
+}
 
 /* botoes do formulario */
 .btn{
@@ -116,10 +131,6 @@ ul{
   background-color: #90EE90;
 }
 
-.btn#btn-deletar{
-  background-color: #FFB6C1;
-
-}
 
 .btn#btn-buscar{
   background-color: #F0E68C;
@@ -143,4 +154,18 @@ td, th{
 
 tr:nth-child(even){
   background-color: #D2D2D2;
+}
+
+td:hover{
+  cursor: pointer;
+}
+
+.btn-deletar{
+  border: 1px solid #D3D3D3;
+  border-radius: 5px;
+  background-color: #FFF;
+}
+
+.btn-deletar:hover{
+  cursor: pointer;
 }

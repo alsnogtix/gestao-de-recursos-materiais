@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão de Materiais</title>
+
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="css/limpeza.css">
+
+
+    <!-- Icon google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,0,-25" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,-25" />
+
 </head>
 <body>
     <nav id="container-nav">
@@ -36,6 +43,9 @@
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_alvejante')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_alvejante">ID: </label>
                 <span id="id_alvejante">0</span>
               </div>
@@ -59,7 +69,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarAlvejante()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button" onclick="">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -73,6 +83,7 @@
                 <th>Marca</th>
                 <th>Unidades</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_alvejante">
@@ -85,6 +96,9 @@
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_sabao_em_po')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_sabao_em_po">ID: </label>
                 <span id="id_sabao_em_po">0</span>
               </div>
@@ -108,7 +122,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarSabaoEmPo()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -122,6 +136,7 @@
                 <th>Marca</th>
                 <th>Unidades</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_sabao_em_po">
@@ -134,6 +149,9 @@
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_agua_sanitaria')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_agua_sanitaria">ID: </label>
                 <span id="id_agua_sanitaria">0</span>
               </div>
@@ -171,6 +189,7 @@
                 <th>Marca</th>
                 <th>Unidades</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_agua_sanitaria">
@@ -183,6 +202,9 @@
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_sabao_em_barra')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_sabao_em_barra">ID: </label>
                 <span id="id_sabao_em_barra">0</span>
               </div>
@@ -206,7 +228,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarSabaoEmBarra()" >SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -220,6 +242,7 @@
                 <th>Marca</th>
                 <th>Unidades</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_sabao_em_barra">

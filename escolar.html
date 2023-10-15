@@ -7,6 +7,12 @@
     <link rel="stylesheet" type="text/css" href="css/estilo.css">
     <link rel="stylesheet" type="text/css" href="css/escolar.css">
 
+    <!-- Icon google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,0,-25" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,200,0,-25" />
+
+
+
 </head>
 <body>
     <nav id="container-nav">
@@ -34,6 +40,9 @@
           <form class="" method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_lapis')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_lapis">ID: </label>
                 <span id="id_lapis">0</span>
               </div>
@@ -65,7 +74,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarLapis()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -80,6 +89,7 @@
                 <th>Marca</th>
                 <th>Tipo</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_lapis">
@@ -92,6 +102,9 @@
           <form class=""  method="post">
             <div class="linha">
               <div class="coluna-25">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_caderno')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_caderno">ID: </label>
                 <span id="id_caderno">0</span>
               </div>
@@ -127,7 +140,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarCaderno()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -144,6 +157,7 @@
                 <th>Folhas</th>
                 <th>Marca</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_caderno">
@@ -156,6 +170,9 @@
           <form method="post">
             <div class="linha">
               <div class="coluna-33">
+                <button id="btn-limpar" class="btn-limpar" type="button" name="button" onclick="limpaTela('tab_caneta')">
+                  <span class="material-symbols-outlined">refresh</span>
+                </button>
                 <label for="id_caneta">ID: </label>
                 <span id="id_caneta">0</span>
               </div>
@@ -183,7 +200,7 @@
                 <button id="btn-salvar" class="btn" type="button" name="button" onclick="cadastrarCaneta()">SALVAR</button>
               </div>
               <div class="coluna-33">
-                <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button>
+                <!-- <button id="btn-deletar" class="btn" type="button" name="button">DELETAR</button> -->
               </div>
               <div class="coluna-33">
                 <button id="btn-buscar" class="btn" type="button" name="button">BUSCAR</button>
@@ -198,6 +215,7 @@
                 <th>Cor</th>
                 <th>Marca</th>
                 <th>Quantidade</th>
+
               </tr>
             </thead>
             <tbody id="lista_caneta">
