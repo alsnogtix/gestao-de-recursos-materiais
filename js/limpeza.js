@@ -102,6 +102,38 @@ class Bd{
     }
     return itens;
   }
+
+  pesquisar(item){
+    let itensFiltrados = Array();
+    itensFiltrados = this.recuperarTodosRegistros();
+    itensFiltrados = itensFiltrados.filter(i => i.tipo == item.tipo);
+    itensFiltrados = itensFiltrados.filter(i => i.subtipo == item.subtipo);
+    switch (item.subtipo) {
+      case 'alvejante':
+        if(item.marca_alvejante != '') itensFiltrados = itensFiltrados.filter(i => i.marca_alvejante == item.marca_alvejante);
+        if(item.unidades_alvejante != '') itensFiltrados = itensFiltrados.filter(i => i.unidades_alvejante == item.unidades_alvejante);
+        if(item.quantidade_alvejante != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_alvejante == item.quantidade_alvejante);
+        break;
+      case 'sabao_em_po':
+        if(item.marca_sabao_em_po != '') itensFiltrados = itensFiltrados.filter(i => i.marca_sabao_em_po == item.marca_sabao_em_po);
+        if(item.unidades_sabao_em_po != '') itensFiltrados = itensFiltrados.filter(i => i.unidades_sabao_em_po == item.unidades_sabao_em_po);
+        if(item.quantidade_sabao_em_po != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_sabao_em_po == item.quantidade_sabao_em_po);
+        break;
+      case 'agua_sanitaria':
+        if(item.marca_agua_sanitaria != '') itensFiltrados = itensFiltrados.filter(i => i.marca_agua_sanitaria == item.marca_agua_sanitaria);
+        if(item.unidades_agua_sanitaria != '') itensFiltrados = itensFiltrados.filter(i => i.unidades_agua_sanitaria == item.unidades_agua_sanitaria);
+        if(item.quantidade_agua_sanitaria != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_agua_sanitaria == item.quantidade_agua_sanitaria);
+        break;
+      case 'sabao_em_barra':
+        if(item.marca_sabao_em_barra != '') itensFiltrados = itensFiltrados.filter(i => i.marca_sabao_em_barra == item.marca_sabao_em_barra);
+        if(item.unidades_sabao_em_barra != '') itensFiltrados = itensFiltrados.filter(i => i.unidades_sabao_em_barra == item.unidades_sabao_em_barra);
+        if(item.quantidade_sabao_em_barra != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_sabao_em_barra == item.quantidade_sabao_em_barra);
+        break;
+    }
+
+    return itensFiltrados;
+
+  }
 }
 let bd = new Bd();
 
@@ -286,7 +318,7 @@ function carregarItem(id){
   }
 }
 
-
+// cria a lista de itens na tabela
 function carregaListaItens(idTab){
   let itens = Array();
   itens = bd.recuperarTodosRegistros();
@@ -386,6 +418,137 @@ function carregaListaItens(idTab){
       });
       break;
     default:
+
+  }
+}
+
+// realiza filtro de itens para colocar na tabela
+function pesquisarItem(idTab){
+  let itensFiltrados = Array();
+  switch (idTab) {
+    case 'alvejante':
+      let id_alvejante = document.getElementById('id_alvejante').innerText;
+      let marca_alvejante = document.getElementById('marca_alvejante').value;
+      let unidades_alvejante = document.getElementById('unidades_alvejante').value;
+      let quantidade_alvejante = document.getElementById('quantidade_alvejante').value;
+
+      let alvejante = new Alvejante(id_alvejante, marca_alvejante, unidades_alvejante, quantidade_alvejante, 'limpeza', 'alvejante');
+      itensFiltrados = bd.pesquisar(alvejante);
+
+      let lista_alvejante = document.getElementById('lista_alvejante');
+      lista_alvejante.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_alvejante.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_alvejante;
+        linha.insertCell(1).innerHTML = item.marca_alvejante;
+        linha.insertCell(2).innerHTML = item.unidades_alvejante;
+        linha.insertCell(3).innerHTML = item.quantidade_alvejante;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_alvejante');
+        }
+        linha.insertCell(4).appendChild(btn);
+      });
+      break;
+    case 'agua_sanitaria':
+      let id_agua_sanitaria = document.getElementById('id_agua_sanitaria').innerText;
+      let marca_agua_sanitaria = document.getElementById('marca_agua_sanitaria').value;
+      let unidades_agua_sanitaria = document.getElementById('unidades_agua_sanitaria').value;
+      let quantidade_agua_sanitaria = document.getElementById('quantidade_agua_sanitaria').value;
+
+      let aguaSanitaria = new AguaSanitaria(id_agua_sanitaria, marca_agua_sanitaria, unidades_agua_sanitaria, quantidade_agua_sanitaria, 'limpeza', 'agua_sanitaria');
+      itensFiltrados = bd.pesquisar(aguaSanitaria);
+
+      let lista_agua_sanitaria = document.getElementById('lista_agua_sanitaria');
+      lista_agua_sanitaria.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_agua_sanitaria.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_agua_sanitaria;
+        linha.insertCell(1).innerHTML = item.marca_agua_sanitaria;
+        linha.insertCell(2).innerHTML = item.unidades_agua_sanitaria;
+        linha.insertCell(3).innerHTML = item.quantidade_agua_sanitaria;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_agua_sanitaria');
+        }
+        linha.insertCell(4).appendChild(btn);
+
+      });
+      break;
+    case 'sabao_em_po':
+      let id_sabao_em_po = document.getElementById('id_sabao_em_po').innerText;
+      let marca_sabao_em_po = document.getElementById('marca_sabao_em_po').value;
+      let unidades_sabao_em_po = document.getElementById('unidades_sabao_em_po').value;
+      let quantidade_sabao_em_po = document.getElementById('quantidade_sabao_em_po').value;
+
+      let sabaoEmPo = new SabaoEmPo(id_sabao_em_po, marca_sabao_em_po, unidades_sabao_em_po, quantidade_sabao_em_po, 'limpeza', 'sabao_em_po');
+      itensFiltrados = bd.pesquisar(sabaoEmPo);
+
+      let lista_sabao_em_po = document.getElementById('lista_sabao_em_po');
+      lista_sabao_em_po.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_sabao_em_po.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_sabao_em_po;
+        linha.insertCell(1).innerHTML = item.marca_sabao_em_po;
+        linha.insertCell(2).innerHTML = item.unidades_sabao_em_po;
+        linha.insertCell(3).innerHTML = item.quantidade_sabao_em_po;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_sabao_em_po');
+        }
+        linha.insertCell(4).appendChild(btn);
+
+      });
+      break;
+    case 'sabao_em_barra':
+      let id_sabao_em_barra = document.getElementById('id_sabao_em_barra').innerText;
+      let marca_sabao_em_barra = document.getElementById('marca_sabao_em_barra').value;
+      let unidades_sabao_em_barra = document.getElementById('unidades_sabao_em_barra').value;
+      let quantidade_sabao_em_barra = document.getElementById('quantidade_sabao_em_barra').value;
+
+      let sabaoEmBarra = new SabaoEmBarra(id_sabao_em_barra, marca_sabao_em_barra, unidades_sabao_em_barra, quantidade_sabao_em_barra, 'limpeza', 'sabao_em_barra');
+      itensFiltrados = bd.pesquisar(sabaoEmBarra);
+
+      let lista_sabao_em_barra = document.getElementById('lista_sabao_em_barra');
+      lista_sabao_em_barra.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_sabao_em_barra.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_sabao_em_barra;
+        linha.insertCell(1).innerHTML = item.marca_sabao_em_barra;
+        linha.insertCell(2).innerHTML = item.unidades_sabao_em_barra;
+        linha.insertCell(3).innerHTML = item.quantidade_sabao_em_barra;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_sabao_em_barra');
+        }
+        linha.insertCell(4).appendChild(btn);
+
+      });
+      break;
 
   }
 }

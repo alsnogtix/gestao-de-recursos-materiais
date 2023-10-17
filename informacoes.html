@@ -33,14 +33,22 @@
       <p>Código do trabalho disponível em: <a href="https://github.com/alsnogtix/gestao-de-recursos-materiais">GIT</a> </p>
       <br>
       <hr>
-      <h3>Instruções para uso parcial do site</h3>
+      <h3>Descrição do sistema</h3>
       <p>
-        A implementação do site se encontra em fase parcial. <br>
-        Os dados estão sendo gravados provisoriamente em localStorage no navegador, o navegador usado para testes até a etapa atual é o firefox. <br>
-        Como os dados estão sendo gravados de maneira provisoria a tabela que mostra os dados salvos apresentam dados do tipo 'undefined',
-        isso ocorre quando, por exemplo, gravamos um item do tipo lápis e clicamos na aba caderno na tela de material escolar.<br>
-        Outro detalhe a destacar é o fato do id não estar sendo mostrado corretamente, para mostrar o numero correto de dados guardados foi criado um id provisorio em localStorage.<br>
-        Para acessar os dados em localStorage no FireFox pressione 'F12' -> aba storage -> localStorage.
+        Os dados estão sendo gravados em sessionStorage no navegador, o navegador usado para testes até a etapa atual é o firefox. <br>
+        O sistema conta com 5 páginas(Inicio, Material de Limpeza, Material Escolar, Material Didatico e Infomrações). <br>
+        A pagina "Inicio" mostra um relatório com todos os itens cadastrados no sistema, agrupados por tipo. É possível selecionar o subtipo e realizar uma busca. <br><br>
+        As páginas "Material de Limpeza", "Material Escolar" e "Material Didatico" mostram os formulários que possibilitam o gerenciamento de itens no sistema. cada pagina <br>
+        contém as abas que correspondem aos subtipos solicitados na definição do trabalho, o formulário para inserir os dados e uma tabela mostrando os dados cadastrados. <br>
+        Para cada página temos um botão que limpa os campos preenchidos, os campos do formulário e dois botões (salvar e buscar). O botão "salvar" grava um novo dado em <br>
+        sessionStorage caso não exista o dado informado, caso o dado já exista no banco o sistema atualiza o dado mantendo o id. O botão "buscar" verifica <br>
+        se existe um dado gravado com as informações contidas no formulário e mostra na tabela abaixo, caso não existir, é mostrado todos os dados.<br>
+        A Tabela mostrada abaixo do formulário mostra todos os dados cadastrados. clicando na tabela é possível editar os dados do registro clicado <br>
+        Para apagar um dado existe um botão com icone de lixeira para cada item na tabela mostrada, ao clicar no botão e confirmando a exclusão <br>
+        o dado será apagado de sessionStorage. <br> <br>
+        A página "informações" mostra instruções de uso do sistema e links para acessar dados relevantes ao sistema.
+
+
       </p>
     </div>
 </body>

@@ -89,6 +89,39 @@ class Bd{
     }
     return itens;
   }
+
+  pesquisar(item){
+    let itensFiltrados = Array();
+    itensFiltrados = this.recuperarTodosRegistros();
+    itensFiltrados = itensFiltrados.filter(i => i.tipo == item.tipo);
+    itensFiltrados = itensFiltrados.filter(i => i.subtipo == item.subtipo);
+    switch (item.subtipo) {
+      case 'lapis':
+        if(item.altura_lapis != '') itensFiltrados = itensFiltrados.filter(i => i.altura_lapis == item.altura_lapis);
+        if(item.marca_lapis != '') itensFiltrados = itensFiltrados.filter(i => i.marca_lapis == item.marca_lapis);
+        if(item.tipo_lapis != '') itensFiltrados = itensFiltrados.filter(i => i.tipo_lapis == item.tipo_lapis);
+        if(item.quantidade_lapis != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_lapis == item.quantidade_lapis);
+        break;
+      case 'caderno':
+        if(item.altura_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.altura_caderno == item.altura_caderno);
+        if(item.largura_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.largura_caderno == item.largura_caderno);
+        if(item.materias_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.materias_caderno == item.materias_caderno);
+        if(item.folhas_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.folhas_caderno == item.folhas_caderno);
+        if(item.marca_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.marca_caderno == item.marca_caderno);
+        if(item.quantidade_caderno != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_caderno == item.quantidade_caderno);
+        break;
+      case 'caneta':
+        if(item.altura_caneta != '') itensFiltrados = itensFiltrados.filter(i => i.altura_caneta == item.altura_caneta);
+        if(item.cor_caneta != '') itensFiltrados = itensFiltrados.filter(i => i.cor_caneta == item.cor_caneta);
+        if(item.marca_caneta != '') itensFiltrados = itensFiltrados.filter(i => i.marca_caneta == item.marca_caneta);
+        if(item.quantidade_caneta != '') itensFiltrados = itensFiltrados.filter(i => i.quantidade_caneta == item.quantidade_caneta);
+        break;
+    }
+
+    return itensFiltrados;
+
+  }
+
 }
 let bd = new Bd();
 
@@ -337,6 +370,115 @@ function carregaListaItens(idTab){
       });
       break;
     default:
+  }
+}
+
+// realiza filtro de itens para colocar na tabela
+function pesquisarItem(idTab){
+  let itensFiltrados = Array();
+  switch (idTab) {
+    case 'lapis':
+      let id_lapis = document.getElementById('id_lapis').innerText;
+      let altura_lapis = document.getElementById('altura_lapis').value;
+      let marca_lapis = document.getElementById('marca_lapis').value;
+      let tipo_lapis = (document.getElementsByName('tipo_lapis')[0].checked == true) ? 'desenho' : 'comum';
+      let quantidade_lapis = document.getElementById('quantidade_lapis').value;
+
+      let lapis = new Lapis(id_lapis, altura_lapis, marca_lapis, tipo_lapis, quantidade_lapis, 'escolar', 'lapis');
+      itensFiltrados = bd.pesquisar(lapis);
+
+      let lista_lapis = document.getElementById('lista_lapis');
+      lista_lapis.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_lapis.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_lapis;
+        linha.insertCell(1).innerHTML = item.altura_lapis;
+        linha.insertCell(2).innerHTML = item.marca_lapis;
+        linha.insertCell(3).innerHTML = item.tipo_lapis;
+        linha.insertCell(4).innerHTML = item.quantidade_lapis;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_lapis');
+        }
+        linha.insertCell(5).appendChild(btn);
+      });
+      break;
+    case 'caderno':
+      let id_caderno = document.getElementById('id_caderno').innerText;
+      let altura_caderno = document.getElementById('altura_caderno').value;
+      let largura_caderno = document.getElementById('largura_caderno').value;
+      let materias_caderno = document.getElementById('materias_caderno').value;
+      let folhas_caderno = document.getElementById('folhas_caderno').value;
+      let marca_caderno = document.getElementById('marca_caderno').value;
+      let quantidade_caderno = document.getElementById('quantidade_caderno').value;
+
+      let caderno = new Caderno(id_caderno, altura_caderno, largura_caderno, materias_caderno, folhas_caderno, marca_caderno, quantidade_caderno, 'escolar', 'caderno');
+      itensFiltrados = bd.pesquisar(caderno);
+
+      let lista_caderno = document.getElementById('lista_caderno');
+      lista_caderno.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_caderno.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_caderno;
+        linha.insertCell(1).innerHTML = item.altura_caderno;
+        linha.insertCell(2).innerHTML = item.largura_caderno;
+        linha.insertCell(3).innerHTML = item.materias_caderno;
+        linha.insertCell(4).innerHTML = item.folhas_caderno;
+        linha.insertCell(5).innerHTML = item.marca_caderno;
+        linha.insertCell(6).innerHTML = item.quantidade_caderno;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_caderno');
+        }
+        linha.insertCell(7).appendChild(btn);
+
+      });
+      break;
+    case 'caneta':
+      let id_caneta = document.getElementById('id_caneta').innerText;
+      let altura_caneta = document.getElementById('altura_caneta').value;
+      let cor_caneta = document.getElementById('cor_caneta').value;
+      let marca_caneta = document.getElementById('marca_caneta').value;
+      let quantidade_caneta = document.getElementById('quantidade_caneta').value;
+
+      let caneta = new Caneta(id_caneta, altura_caneta, cor_caneta, marca_caneta, quantidade_caneta, 'escolar', 'caneta');
+      itensFiltrados = bd.pesquisar(caneta);
+
+      let lista_caneta = document.getElementById('lista_caneta');
+      lista_caneta.innerHTML = '';
+
+      itensFiltrados.forEach((item, i) => {
+        let linha = lista_caneta.insertRow();
+        linha.addEventListener('click', () => {
+          carregarItem(linha.cells[0].innerText);
+        });
+        linha.insertCell(0).innerHTML = item.id_caneta;
+        linha.insertCell(1).innerHTML = item.altura_caneta;
+        linha.insertCell(2).innerHTML = item.cor_caneta;
+        linha.insertCell(3).innerHTML = item.marca_caneta;
+        linha.insertCell(4).innerHTML = item.quantidade_caneta;
+        let btn = document.createElement('BUTTON');
+        btn.classList.add('btn-deletar');
+        btn.innerHTML = '<span class="material-symbols-rounded">delete</span>';
+        btn.onclick = function () {
+          deletarItem(linha.cells[0].innerText, 'tab_caneta');
+        }
+        linha.insertCell(5).appendChild(btn);
+
+      });
+      break;
   }
 }
 
